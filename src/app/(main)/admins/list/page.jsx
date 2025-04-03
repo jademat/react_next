@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import '@/app/(main)/admins/admin.css';
-import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import Link from "next/link";
 
 
@@ -40,40 +40,43 @@ export default function Admins() {
     return (
         <main className="Admins">
             <div className="d-flex align-items-center mb-3">
-                <Dropdown className="me-2">
-                    <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                        - 선택 -
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">이름</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">아이디</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">강의명</Dropdown.Item>
-                        <Dropdown.Item href="#/action-4">연락처</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-
-                {/* 인풋창: 테이블 너비의 50% */}
-                <Form.Control
-                    type="text"
-                    placeholder="검색..."
-                    className="w-50"
-                />
+                <div className="d-flex align-items-center" style={{ flex: 1 }}>
+                    <Form.Select className="selectbox me-2">
+                        <option>강의명</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </Form.Select>
+                    <Form.Control
+                        type="text"
+                        placeholder="검색..."
+                        className="w-25 me-2"
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                    <Button variant="primary">
+                        검색
+                    </Button>
+                </div>
+                <div style={{ width: '120px', textAlign: 'center' }}>
+                    <Button variant="success">
+                        등록
+                    </Button>
+                </div>
             </div>
             <div className="Admins-table ">
                 <table>
                     <thead>
                     <tr>
-                        <th>No</th>
-                        <th>사용자명</th>
-                        <th>수강</th>
-                        <th>연락처</th>
-                        <th>가입일</th>
-                        <th>기타</th>
+                        <th style={{ width: '10%' }}>No</th>
+                        <th style={{ width: '20%' }}>사용자명</th>
+                        <th style={{ width: '25%' }}>수강</th>
+                        <th style={{ width: '15%' }}>연락처</th>
+                        <th style={{ width: '15%' }}>가입일</th>
+                        <th style={{ width: '15%' }}>기타</th>
                     </tr>
                     </thead>
                     <tbody>
                     {currentAdmins.map((user, index) => (
-
                         <tr key={user.id}>
                             <td>{startIndex + index + 1}</td>
                             <td><Link className="userName" href="#">{user.name}</Link></td>
@@ -84,14 +87,12 @@ export default function Admins() {
                                 <button className="action-button">수정</button>
                                 <button className="action-button">삭제</button>
                             </td>
-
                         </tr>
                     ))}
                     </tbody>
                 </table>
             </div>
             <div className="pagination">
-                <span>Total: {filteredAdmins.length}</span>
                 <div className="page-buttons">
                     {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                         <button

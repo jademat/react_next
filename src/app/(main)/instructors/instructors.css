@@ -138,7 +138,7 @@ td {
 
 .pagination {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-top: 1.5rem;
 }
@@ -177,4 +177,11 @@ td {
 }
 .userName:hover {
     color: #2b6cb0;
+}
+.selectbox {
+    width: 10%;
+}
+.insertInstuctors {
+    width : 120px;
+    textAlign: center;
 }

@@ -64,7 +64,7 @@ export default function Instuctors() {
                     </thead>
                     <tbody>
                     {currentInstuctors.map((user, index) => (
-                        <tr key={user.id}>
+                        <tr key={user.no}>
                             <td>{(currentPage - 1) * 15 + index + 1}</td>
                             <td>
                                 <Link className="userName" href="#">
@@ -111,6 +111,26 @@ export default function Instuctors() {
                                 value={newInstructor.name}
                                 onChange={handleInputChange}
                                 placeholder="이름을 입력하세요"
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>아이디</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="id"
+                                value={newInstructor.id}
+                                onChange={handleInputChange}
+                                placeholder="아이디를 입력하세요"
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>비밀번호</Form.Label>
+                            <Form.Control
+                                type="password"
+                                name="passwd"
+                                value={newInstructor.passwd}
+                                onChange={handleInputChange}
+                                placeholder="비밀번호를 입력하세요"
                             />
                         </Form.Group>
                         <Form.Group className="mb-3">

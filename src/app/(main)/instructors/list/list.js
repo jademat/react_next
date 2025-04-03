@@ -1,11 +1,7 @@
 import React, {useState} from 'react';
 
 const mockInstuctors = [
-    { id: 1, name: '김수진', email: 'sujin.kim@example.com', role: '학생', status: '활성' },
-    { id: 2, name: '이민호', email: 'minho.lee@example.com', role: '학생', status: '비활성' },
-    { id: 3, name: '박지영', email: 'jiyoung.park@example.com', role: '학생', status: '활성' },
-    { id: 4, name: '최영수', email: 'youngsoo.choi@example.com', role: '학생', status: '활성' },
-    { id: 5, name: '정다은', email: 'daeun.jung@example.com', role: '학생', status: '비활성' },
+    { no: 1, name: '김수진', email: 'sujin.kim@example.com', role: '학생', status: '활성' }
 ];
 
 export const listInstructors = () => {
@@ -14,11 +10,13 @@ export const listInstructors = () => {
     const InstuctorsPerPage = 15;
     const [instructors, setInstructors] = useState(mockInstuctors); // 동적 데이터 관리
     const [showModal, setShowModal] = useState(false); // 모달창 상태
-    const [newInstructor, setNewInstructor] = useState({ name: '', email: '', role: '', status: '' }); // 새 강사 데이터
+    const [newInstructor, setNewInstructor] = useState({ name: '',id : '', passwd : '', email: '', role: '', status: '' });
 
     const filteredInstuctors = mockInstuctors.filter(
         (user) =>
             user.name.includes(searchTerm) ||
+            user.id.includes(searchTerm) ||
+            user.passwd .includes(searchTerm) ||
             user.email.includes(searchTerm) ||
             user.role.includes(searchTerm) ||
             user.status.includes(searchTerm)
@@ -35,7 +33,7 @@ export const listInstructors = () => {
     const handleShowModal = () => setShowModal(true);
     const handleCloseModal = () => {
         setShowModal(false);
-        setNewInstructor({ name: '', email: '', role: '', status: '' }); // 폼 초기화
+        setNewInstructor({ name: '',id : '', passwd : '', email: '', role: '', status: '' });
     };
 
     const handleInputChange = (e) => {
@@ -46,7 +44,7 @@ export const listInstructors = () => {
     // 강사 등록 처리
     const handleAddInstructor = () => {
         const newId = instructors.length + 1;
-        const newInstructorData = { id: newId, ...newInstructor };
+        const newInstructorData = { no: newId, ...newInstructor };
         setInstructors((prev) => [...prev, newInstructorData]); // 새로운 강사 추가
         handleCloseModal(); // 모달 닫기
     };

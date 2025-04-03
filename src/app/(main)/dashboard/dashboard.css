@@ -1,0 +1,67 @@
+.dashboard {
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.dashboard h2 {
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.dashboard p {
+    color: #718096;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 180px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.stat-card h3 {
+    margin: 0;
+    color: #2d3748;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.stat-card p {
+    font-size: 2rem;
+    margin: 0.5rem 0 0;
+    color: #3182ce;
+    font-weight: 700;
+}
+
+.recent-activity {
+    margin-top: 2rem;
+    color: #718096;
+}
+
+.recent-activity h3 {
+    font-size: 1.4rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.recent-activity p {
+    margin: 1rem 0;
+}
